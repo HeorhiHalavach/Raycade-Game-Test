@@ -1,0 +1,14 @@
+// Konfiguracja debugera (F4 lub panel Debug). Przed startem projekt jest budowany.
+[
+  {
+    "label": "Debuguj grę (gdb)",
+    "adapter": "GDB",
+    "request": "launch",
+    "program": "$ZED_WORKTREE_ROOT/build/gra",
+    "cwd": "$ZED_WORKTREE_ROOT/build",
+    "build": {
+      "command": "build",
+      "cwd": "$ZED_WORKTREE_ROOT"
+    }
+  }
+]
