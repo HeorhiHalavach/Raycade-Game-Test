@@ -23,6 +23,9 @@ file(GLOB_RECURSE GAME_SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src
 add_executable(gra ${GAME_SOURCES})
 target_include_directories(gra PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(gra PRIVATE raycade::raycade raycade_warnings)
+if(MINGW)
+    target_link_options(gra PRIVATE -static -static-libgcc -static-libstdc++)
+endif()
 set_target_properties(gra PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Zasoby kopiowane obok pliku wykonywalnego - Engine::AssetPath() i Assets szukają ich w assets/
